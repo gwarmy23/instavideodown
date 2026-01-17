@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Downloader</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Download Instagram Reels, Photos, Stories & Highlights Instantly</h1>
+            <p class="hero-subtitle">Fast, free & secure downloader with no login required</p>
+            <div class="input-section">
+                <input type="url" id="urlInput" placeholder="Paste Instagram URL here..." required>
+                <button id="previewBtn" class="preview-btn">Preview</button>
+                <button id="downloadBtn" class="download-btn">Download</button>
+            </div>
+            <div class="platform-icons">
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloader Section -->
+    <section class="downloader">
+        <div class="container">
+            <!-- Notification Area -->
+            <div id="notification" class="notification hidden"></div>
+
+            <!-- Preview Modal -->
+            <div id="previewModal" class="preview-modal hidden">
+                <div class="preview-overlay" id="previewOverlay"></div>
+                <div class="preview-content">
+                    <div class="preview-header">
+                        <h3 id="previewTitle">Media Preview</h3>
+                        <button class="preview-close" id="previewClose">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="preview-body">
+                        <div id="previewMedia" class="preview-media"></div>
+                    </div>
+                    <div class="preview-footer" id="previewFooter" style="display: none;">
+                        <button id="modalDownloadBtn" class="download-btn">Download Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="results" class="results hidden">
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Processing your request...</p>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                </div>
+                <div class="download-section" id="downloadSection">
+                    <h3><i class="fas fa-download"></i> Download Options</h3>
+                    <div id="downloadLinks"></div>
+                </div>
+                <div class="success" id="success">
+                    <i class="fas fa-check-circle"></i>
+                    <p id="successMessage">Download completed successfully!</p>
+                </div>
+                <div class="error" id="error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Downloader?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Fast Downloads</h3>
+                    <p>Get your media instantly without waiting</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>No Login Required</h3>
+                    <p>Download without creating an account</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Preview Before Download</h3>
+                    <p>See photos and videos before downloading</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Friendly</h3>
+                    <p>Works perfectly on all devices</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-hd"></i>
+                    <h3>High-Quality Media</h3>
+                    <p>Download in HD/SD quality</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>All Devices</h3>
+                    <p>Compatible with phones, tablets, and desktops</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-infinity"></i>
+                    <h3>Unlimited Downloads</h3>
+                    <p>No limits on downloads</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Copy Post Link</h3>
+                    <p>Copy the URL from Instagram</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Paste Link</h3>
+                    <p>Paste the link into the input box</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Preview Media</h3>
+                    <p>Click preview to see photos/videos before downloading</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Download & Save</h3>
+                    <p>Click download and save your media</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">Is it free?</button>
+                    <div class="accordion-content">
+                        <p>Yes, our downloader is completely free to use.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Is it safe?</button>
+                    <div class="accordion-content">
+                        <p>Yes, we prioritize user security and privacy.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Do I need to log in?</button>
+                    <div class="accordion-content">
+                        <p>No login is required. Just paste the URL and download.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Can I download reels?</button>
+                    <div class="accordion-content">
+                        <p>Yes, you can download Instagram reels and videos.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Is this legal?</button>
+                    <div class="accordion-content">
+                        <p>This tool is for personal use only. Respect content creators' rights.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Showcase -->
+    <section class="platforms">
+        <div class="container">
+            <div class="platform-cards">
+                <div class="platform-card">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram Downloader</h3>
+                    <p>Download photos, videos, reels, stories, and highlights</p>
+                    <div class="preview">
+                        <img src="https://dummyimage.com/300x200/000000/FFFFFF&text=Follow+Us+↓" alt="Instagram Preview">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@GW_IMRAN" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/gw_imran_23/?hl=am-et" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/gwimran23/" target="_blank"><i class="fab fa-facebook"></i></a>
+                </div>
+                <p>&copy; 2026 Website developed and maintained by GW IMRAN</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
